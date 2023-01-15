@@ -10,6 +10,7 @@ declare global {
             MAIL_PORT: string;
             MAIL_USER: string;
             MAIL_PASS: string;
+            MAIL_FROM: string;
         }
     }
     namespace Express {
