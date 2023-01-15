@@ -2,6 +2,8 @@ import { Request, Response, Router } from 'express';
 import { userRoutes } from './user.routes'
 import { authRoutes } from './auth.routes'
 import MailSend from '@providers/MailSend';
+import multer from 'multer';
+import { uploadLocal } from 'src/storage/local';
 const route = Router();
 
 route.get('/', (
@@ -31,6 +33,18 @@ route.post("/test-mailer", async (request:Request,response:Response) => {
 
   return response.status(200).json({
     message: "Message send"
+  })
+})
+
+route.post("/test-upload-avatar", multer(uploadLocal.getConfig).single("avatar"), (request:Request,response:Response) => {
+  if(request.file){
+    return response.status(200).json({
+      data: request.file
+    })
+  }
+
+  return response.status(400).json({
+    message: "Error"
   })
 })
 
