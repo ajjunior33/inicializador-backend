@@ -28,7 +28,9 @@
             "@exceptions/*": ["./src/app/Exceptions/*"],
             "@middlewares/*": ["./src/app/Http/middlewares/*"],
             "@dtos/*": ["./src/app/Http/dtos/*"],
-            "@database/*": ["./src/database/*"]
+            "@database/*": ["./src/database/*"],
+            "@configs/*": ["./src/config/*"],
+            "@resources/*": ["./src/resources/*"]
         }
     },
     "include": ["src/**/*"]
