@@ -3,6 +3,7 @@ import UserRepository from "@repositories/UserRepository";
 import { HashProvider } from "@providers/HashProvider";
 import { Exception } from '@exceptions/Exception';
 import ModuleMailer from '@providers/MailSend';
+import MailSend from '@providers/MailSend';
 
 class UserController {
   public async store(request: Request, response: Response, next: NextFunction) {
@@ -29,6 +30,12 @@ class UserController {
       });
       createUser.password = ''
 
+      await MailSend.sendMailer({
+        context:{},
+        email,
+        subject:"Welcome",
+        template:"Welcome"
+      })
 
 
       return response.status(200).json({

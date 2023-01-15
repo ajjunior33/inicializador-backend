@@ -17,7 +17,7 @@ class ModuleMailer{
 
   public async configMailer(){
     let mailOptions ={
-      from: "Meraki Desenvolvimento <andresouza@meraki.dev.br>",
+      from: process.env.MAIL_FROM,
       to: this.to,
       subject: this.subject,
       template: this.template,

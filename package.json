@@ -1,11 +1,13 @@
 {
-  "name": "ajj-utils",
-  "version": "1.0.1",
+  "name": "inicilizador_backend",
+  "version": "0.0.2",
   "main": "src/server.js",
   "license": "MIT",
   "description": "Iniciar Projeto Node.Js",
   "author": {
-    "name": "André Souza"
+    "name": "André Souza",
+    "email":"andresouza@meraki.dev.br",
+    "url": "https://github.com/ajjunior33"
   },
   "scripts": {
     "build": "babel ./src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
