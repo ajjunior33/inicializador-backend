@@ -1,6 +1,6 @@
 import hbs from "nodemailer-express-handlebars";
 import nodemailer from 'nodemailer';
-import path from 'node:path';
+import path from 'path';
 
 import { MailConfig } from "@configs/mail";
 
