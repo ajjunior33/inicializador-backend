@@ -4,14 +4,22 @@ Faço uso desse repositório sempre que preciso iniciar um novo projeto.
 
 
 
-# 1.0.0
+# Sprint 1
 
 - [x] Celebrate
 - [x] Mongoose
 - [x] JWT
 
-# 1.1.0
+# Sprint 2
 - [x] Prisma
 - [x] Joi
 - [x] JWT
-- [ ] Implementar template de email
+- [x] Implementar template de email
+
+
+# Sprint 3
+
+- [ ] Multer
+- [ ] S3 Amazon
+- [ ] Minio
+- [ ] Digital Ocean Spaces
