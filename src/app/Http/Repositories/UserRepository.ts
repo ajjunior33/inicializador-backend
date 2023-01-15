@@ -1,8 +1,7 @@
-import { PrismaClient, User } from "@prisma/client";
+import { User } from "@prisma/client";
 import { CreateUserProps } from "@dtos/User/CreateUserProps";
 
-const prisma = new PrismaClient()
-
+import { prisma } from "@database/prisma";
 
 class UserRepository {
     public async createUser({
