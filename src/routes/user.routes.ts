@@ -1,12 +1,11 @@
 
-import { MiddlewareCreateUser } from "@middlewares/routes/User/CreateUser";
-import userController from "@controllers/UserController";
+import {Router} from 'express';
+import {MiddlewareCreateUser} from '@middlewares/routes/User/CreateUser';
+import userController from '@controllers/UserController';
 
-const { Router } = require('express');
-
+// eslint-disable-next-line new-cap
 const userRoutes = Router();
 
-userRoutes
-  .post("/", MiddlewareCreateUser, userController.store);
+userRoutes.post('/', MiddlewareCreateUser, userController.store);
 
-export { userRoutes };
+export {userRoutes};

@@ -1,16 +1,31 @@
 {
     "env": {
         "es2021": true,
-        "node": true,
-        "jest":true
+        "node": true
     },
-    "extends": "standard-with-typescript",
+    "extends": "xo",
     "overrides": [
+        {
+            "extends": [
+                "xo-typescript"
+            ],
+            "files": [
+                "*.ts",
+                "*.tsx"
+            ]
+        }
     ],
     "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
+        "ecmaVersion": "latest"
     },
     "rules": {
+			"@typescript-eslint/no-throw-literal": "off",
+			"object-curly-spacing": "off",
+			"@typescript-eslint/object-curly-spacing": "off",
+			"@typescript-eslint/no-useless-constructor":"off",
+			"@typescript-eslint/no-unsafe-call":"off",
+			"@typescript-eslint/no-empty-function": "off",
+			"@typescript-eslint/prefer-nullish-coalescing": "off",
+			"@typescript-eslint/new-cap": "off"
     }
 }

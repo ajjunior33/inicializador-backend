@@ -11,6 +11,12 @@ declare global {
             MAIL_USER: string;
             MAIL_PASS: string;
             MAIL_FROM: string;
+            TYPE_STORAGE: "local" | "s3" | "minio";
+            S3_ENDPOINT: string;
+            S3_REGION: string;
+            S3_ACCESS_KEY: string;
+            S3_SECRET_KEY: string;
+            S3_BUCKET: string;
         }
     }
     namespace Express {

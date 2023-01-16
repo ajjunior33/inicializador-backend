@@ -1,46 +1,62 @@
-import { Request } from 'express';
-import multer, { StorageEngine, Options, FileFilterCallback } from 'multer';
-import path from 'path'
+
+import multer from 'multer';
+import path from 'path';
 import fs from 'fs';
-import mime from 'mime';
+import {type Request} from 'express';
+
 class UploadLocal {
-  private URL: string = path.resolve("./src/storage/local");
-  constructor() { }
+	private readonly url: string = path.resolve('./src/storage/local');
 
-  private storage(): StorageEngine {
-    return multer.diskStorage({
-      destination: (request: Request, file: Express.Multer.File, callback: any) => {
-        if (!fs.existsSync(this.URL)) {
-          fs.mkdirSync(this.URL);
-        }
-        callback(null, this.URL);
-      },
-      filename: (request: Request, file: Express.Multer.File, callback: any) => {
-        const type = file.mimetype.split('/')[1];
-        callback(null, `${new Date().getTime()}.${type}`)
-      }
-    })
-  }
+	constructor() { }
 
-  private fileFilter() {
-    return (request: Request, file: Express.Multer.File, callback: FileFilterCallback) => {
-      const type = file.mimetype.split('/')[1];
-      const acceptsTypes = ["png", "jpg", "jpeg"];
+	private storage(): multer.StorageEngine {
+		return multer.diskStorage({
+			destination: (
+				request: Request,
+				file: Express.Multer.File,
+				cb: any,
+			) => {
+				if (!fs.existsSync(this.url)) {
+					fs.mkdirSync(this.url);
+				}
 
-      if (acceptsTypes.includes(`${type}`)) {
-        callback(null, true);
-      }
+				cb(null, this.url);
+			},
 
-      callback(null, false);
-    }
-  }
+			filename(
+				request: Request,
+				file: Express.Multer.File,
+				cb: any,
+			) {
+				const type = file.mimetype.split('/')[1];
 
-  get getConfig(): Options {
-    return {
-      storage: this.storage(),
-      fileFilter: this.fileFilter()
-    }
-  }
+				cb(null, `${new Date().getTime()}.${type}`);
+			},
+		})
+	}
+
+	private fileFilter() {
+		return (
+			request: Request,
+			file: Express.Multer.File,
+			cb: multer.FileFilterCallback,
+		) => {
+			const type = file.mimetype.split('/')[1];
+			const conditions = ['png', 'jpg', 'jpeg'];
+			if (conditions.includes(`${type}`)) {
+				cb(null, true);
+			}
+
+			cb(null, false);
+		};
+	}
+
+	get getConfig() {
+		return multer({
+			storage: this.storage(),
+			fileFilter: this.fileFilter(),
+		});
+	}
 }
 
 export const uploadLocal = new UploadLocal();
