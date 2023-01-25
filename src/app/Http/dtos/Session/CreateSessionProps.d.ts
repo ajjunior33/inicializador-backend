@@ -17,5 +17,13 @@ export interface ResponseCreateSessionProps {
         forgoutPasswordToken:string;
         forgoutPasswordDate: Date;
     };
+  refreshToken: RefreshTokenProps;
     token: string;
+}
+
+
+interface RefreshTokenProps{
+  id: string;
+  expiresIn: number;
+  userId: string;
 }
