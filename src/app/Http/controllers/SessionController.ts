@@ -39,6 +39,10 @@ class AuthController {
     public async refreshTokenSession(request: Request, response:Response, next: NextFunction){
       try{
         const {refresh_token} = request.body;
+
+        if(!refresh_token){
+          throw new Exception("Você precisa informar um token.", 400);
+        }
         
         const sessionRepository = new SessionRepository();
         const find = await sessionRepository.findRefreshToken(refresh_token);
