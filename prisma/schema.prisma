@@ -11,15 +11,25 @@ datasource db {
 }
 
 model User {
-  id                   String    @id @default(auto()) @map("_id") @db.ObjectId
+  id                   String         @id @default(auto()) @map("_id") @db.ObjectId
   name                 String
-  email                String    @unique
+  email                String         @unique
   password             String
   forgoutPasswordToken String?
   forgoutPasswordDate  DateTime?
-  createdAt            DateTime  @default(now())
+  createdAt            DateTime       @default(now())
   updatedAt            DateTime?
   deletedAt            DateTime?
+  refresh_token        RefreshToken[]
 
   @@map("user")
+}
+
+model RefreshToken {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  expiresIn Int
+  user      User   @relation(fields: [userId], references: [id])
+  userId    String @db.ObjectId
+
+  @@map("refresh_token")
 }
