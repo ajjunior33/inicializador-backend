@@ -20,18 +20,18 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "baseUrl": ".",
-        "paths":{
-            "@controllers/*": ["./src/app/Http/controllers/*"],
-            "@routes/*": ["./src/routes/*"],
-            "@repositories/*": ["./src/app/Http/Repositories/*"],
-            "@providers/*":["./src/app/Providers/*"],
-            "@exceptions/*": ["./src/app/Exceptions/*"],
-            "@middlewares/*": ["./src/app/Http/middlewares/*"],
-            "@dtos/*": ["./src/app/Http/dtos/*"],
-            "@database/*": ["./src/database/*"],
-            "@configs/*": ["./src/config/*"],
-            "@resources/*": ["./src/resources/*"]
-        }
+        // "paths":{
+        //     "@controllers/*": ["./src/app/Http/controllers/*"],
+        //     "@routes/*": ["./src/routes/*"],
+        //     "@repositories/*": ["./src/app/Http/Repositories/*"],
+        //     "@providers/*":["./src/app/Providers/*"],
+        //     "@exceptions/*": ["./src/app/Exceptions/*"],
+        //     "@middlewares/*": ["./src/app/Http/middlewares/*"],
+        //     "@dtos/*": ["./src/app/Http/dtos/*"],
+        //     "@database/*": ["./src/database/*"],
+        //     "@configs/*": ["./src/config/*"],
+        //     "@resources/*": ["./src/resources/*"]
+        // }
     },
     "include": ["src/**/*"]
 }

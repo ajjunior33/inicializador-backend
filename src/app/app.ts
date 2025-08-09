@@ -1,25 +1,22 @@
-import 'dotenv/config'
-import express, { Request, Response, NextFunction } from 'express';
-import cors from 'cors';
+import cors from 'cors'
+import express, { Request, Response } from 'express'
+import morgan from 'morgan'
+import { errorHandler } from './middleware/error-handler.middleware'
 
-import { route } from '@routes/router';
+const app = express()
 
-const app = express();
+app.use(express.json())
+app.use(cors())
+app.use(morgan('dev'))
 
+app.get('/', (_: Request, response: Response) => {
+  return response.status(200).json({
+    health: true,
+  })
+})
 
-app.use(cors());
+const routes = express.Router()
 
-app.use(express.json());
+routes.use(errorHandler)
 
-app.use(route);
-
-app.use((
-    error: Error,
-    request: Request,
-    response: Response,
-    next: NextFunction
-) => {
-    return response.status(500).send(error)
-});
-
-export { app }
+export default app
