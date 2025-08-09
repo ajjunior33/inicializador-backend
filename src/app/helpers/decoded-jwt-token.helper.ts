@@ -9,7 +9,7 @@ function decodedJwtToken(token: string) {
     )
     return decoded
   } catch (err) {
-    throw new Exception('Não foi possível decodificar o token.', 401)
+    throw new Exception('There was an error trying to generate the token.', 400)
   }
 }
 

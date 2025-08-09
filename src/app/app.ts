@@ -1,6 +1,8 @@
 import cors from 'cors'
 import express, { Request, Response } from 'express'
 import morgan from 'morgan'
+import authRouter from './contexts/auth/auth.router'
+import userRouter from './contexts/user/user.router'
 import { errorHandler } from './middleware/error-handler.middleware'
 
 const app = express()
@@ -16,6 +18,9 @@ app.get('/', (_: Request, response: Response) => {
 })
 
 const routes = express.Router()
+
+routes.use('/auth', authRouter)
+routes.use('/user', userRouter)
 
 routes.use(errorHandler)
 
