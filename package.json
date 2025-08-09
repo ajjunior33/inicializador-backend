@@ -14,7 +14,9 @@
     "Node.js"
   ],
   "dependencies": {
+    "@prisma/client": "^6.13.0",
     "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.1",
@@ -27,6 +29,7 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/morgan": "^1.9.10",
     "eslint": "^8.57.1",
+    "prisma": "^6.13.0",
     "tsx": "^4.20.3",
     "typescript": "^5.9.2"
   }
